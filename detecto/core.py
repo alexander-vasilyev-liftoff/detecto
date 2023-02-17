@@ -243,7 +243,7 @@ class Model:
             available and the CPU if not.
         :type device: torch.device or None
         :param pretrained: (Optional) Whether to load pretrained weights or not.
-            Defaults to True. 
+            Defaults to True.
         :type pretrained: bool
         :param model_name: (Optional) The name of the Faster R-CNN model to use.
             Valid choices are ``"fasterrcnn_resnet50_fpn"`` (``Model.DEFAULT``),
@@ -613,7 +613,7 @@ class Model:
             >>> model = Model.load('model_weights.pth', ['ant', 'bee'])
         """
 
-        model = Model(classes, model_name=model_name)
+        model = Model(classes, model_name=model_name, pretrained=False)
         model._model.load_state_dict(torch.load(file, map_location=model._device))
         return model
 
